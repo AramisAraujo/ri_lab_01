@@ -1,11 +1,11 @@
-# Recuperação da Informação e Busca na Web
-## Laboratório 01: Crawlers
+# RecuperaÃ§Ã£o da InformaÃ§Ã£o e Busca na Web
+## LaboratÃ³rio 01: Crawlers
 
-### Descrição
+### DescriÃ§Ã£o
 
-Neste laboratório exploraremos o conceito de *Focused Crawler*. Como forma de exercício, buscaremos conteúdo de forma automatizada em portais de notícias. Para tanto, será preciso reconhecer o conteúdo útil em cada página acessada. Com este objetivo, utilizares um estratégia simples baseada no próprio layout HTML do site alvo. Felizmente as páginas HTML publicadas em portais deste tipo seguem um layout HTML recorrente, o qual pode ser reconhecido de forma automática facilmente. Este será o objetivo deste laboratório.
+Neste laboratÃ³rio exploraremos o conceito de *Focused Crawler*. Como forma de exercÃ­cio, buscaremos conteÃºdo de forma automatizada em portais de notÃ­cias. Para tanto, serÃ¡ preciso reconhecer o conteÃºdo Ãºtil em cada pÃ¡gina acessada. Com este objetivo, utilizares um estratÃ©gia simples baseada no prÃ³prio layout HTML do site alvo. Felizmente as pÃ¡ginas HTML publicadas em portais deste tipo seguem um layout HTML recorrente, o qual pode ser reconhecido de forma automÃ¡tica facilmente. Este serÃ¡ o objetivo deste laboratÃ³rio.
 
-Com o intuito de evitar prejuízos quanto à disponibilidade de acesso do site alvo, elencamos seis domínios diferentes para serem distribuídos entre os alunos. Cada domínio será explorado por doze alunos diferentes de forma independente (sem formação de grupos). Seguem os domínios possíveis abaixo;
+Com o intuito de evitar prejuÃ­zos quanto Ã  disponibilidade de acesso do site alvo, elencamos seis domÃ­nios diferentes para serem distribuÃ­dos entre os alunos. Cada domÃ­nio serÃ¡ explorado por doze alunos diferentes de forma independente (sem formaÃ§Ã£o de grupos). Seguem os domÃ­nios possÃ­veis abaixo;
 
 - brasil247.com
 - brasil.elpais.com
@@ -14,36 +14,43 @@ Com o intuito de evitar prejuízos quanto à disponibilidade de acesso do site alv
 - gazetadopovo.com.br
 - oantagonista.com
 
-Durante a aula faremos a distribuição destes domínios.
+Durante a aula faremos a distribuiÃ§Ã£o destes domÃ­nios.
 
 ### Objetivos
 
-O objetivo principal é reunir um mínimo de 100 notícias posteriores a 01/01/2018 e exportá-las para um arquivo CSV conforme *layout* abaixo.
+O objetivo principal Ã© reunir um mÃ­nimo de 100 notÃ­cias posteriores a 01/01/2018 e exportÃ¡-las para um arquivo CSV conforme *layout* abaixo.
 
-| Campo     | Tipo     | Descrição                      |
+| Campo     | Tipo     | DescriÃ£o                      |
 | --------- | -------- | ------------------------------ |
 | title     | String   |                                |
 | sub_title | String   |                                |
 | author    | String   |                                |
 | date      | Datetime | dd/mm/yyyy hh:mi:ss            |
-| section   | String   | Esportes, Saúde, Política, etc |
+| section   | String   | Esportes, SaÃºde, PolÃ­tica, etc |
 | text      | String   |                                |
 | url       | String   |                                |
 
 
-Deste modo, pretendemos explorar o conceito de Crawler na prática. Assim sendo, não apenas o resultado final será avaliado, mas o código. A presença de *politeness practices*, a leitura do arquivo *robots.txt*, a verificação do *sitemap* ou do *feed* de notícias serão diferenciais.
+Deste modo, pretendemos explorar o conceito de Crawler na prÃ¡tica. Assim sendo, nÃ£o apenas o resultado final serÃ¡ avaliado, mas o cÃ³digo. A presenÃ§a de *politeness practices*, a leitura do arquivo *robots.txt*, a verificaÃ§Ã£o do *sitemap* ou do *feed* de notÃ­cias serÃ£o diferenciais.
 
-### O Código
+### O CÃ³digo
 
-O código a seguir já foi utilizado em projeto do departamento de Computação da UFCG, foi testado para todos os portais mencionados e em seguida teve trechos removidos com o intuito de servir a propósitos didáticos. Trata-se de um programa desenvolvido em Python que emprega um *framework* chamado Scrapy. Scrapy é uma crawler de código aberto que provê o arcabouço principal deste laboratório.
+O cÃ³digo a seguir jÃ¡ foi utilizado em projeto do departamento de ComputaÃ§Ã£o da UFCG, foi testado para todos os portais mencionados e em seguida teve trechos removidos com o intuito de servir a propÃ³sitos didÃ¡ticos. Trata-se de um programa desenvolvido em Python que emprega um *framework* chamado Scrapy. Scrapy Ã© uma crawler de cÃ³digo aberto que provÃª o arcabouÃ§o principal deste laboratÃ³rio.
 
-Para compreender este código é necessário ler a [documentação básica](http://docs.scrapy.org/en/latest/intro/tutorial.html) do Scrapy, caso não a conheça.
+Para compreender este cÃ³digo Ã© necessÃ¡rio ler a [documentaÃ§Ã£o bÃ¡sica](http://docs.scrapy.org/en/latest/intro/tutorial.html) do Scrapy, caso no a conheÃ§a.
 
-O projeto está dividido em quatro pastas
+O projeto estÃ¡ dividido em quatro pastas
 
 - frontier
 - ri_lab_01
 - seeds
 - output
 
-A pasta `seeds` traz em arquivo JSON as sementes do algoritmo de *crawling*, ou seja, os links iniciais a serem utilizados pelo seu código. O código opera a partir de cópias destes arquivos na pasta `frontier`. A pasta `ri_lab_01` traz o projeto em si. Para fins de correção, é importante utilizar apenas as sementes disponibilizadas nos arquivos em `seeds`. Já na pasta `output`, consta apenas o arquivo `results.csv`, que está vazio, mas deverá conter seus resultados.
+A pasta `seeds` traz em arquivo JSON as sementes do algoritmo de *crawling*, ou seja, os links iniciais a serem utilizados pelo seu cÃ³digo. O cÃ³digo opera a partir de cÃ³pias destes arquivos na pasta `frontier`. A pasta `ri_lab_01` traz o projeto em si. Para fins de correÃ§Ã£o, Ã© importante utilizar apenas as sementes disponibilizadas nos arquivos em `seeds`. JÃ¡ na pasta `output`, consta apenas o arquivo `results.csv`, que estÃ¡ vazio, mas deverÃ¡ conter seus resultados.
+
+### Comandos para executar o projeto
+
+> ```shell
+> scrapy list # lista todos os spiders do projeto
+> scrapy crawl __nome_do_spider__ -o output/results.csv # subistitua pelo nome do spider atribuido a vocÃª.
+> ```
