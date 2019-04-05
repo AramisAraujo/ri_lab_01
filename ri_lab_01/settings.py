@@ -31,18 +31,18 @@ USER_AGENTS = [
 ]
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'ri_lab_01 (+http://www.yourdomain.com)'
+USER_AGENT = 'Aramis@RecInfo UFCG'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 8
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 5
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -77,7 +77,8 @@ DOWNLOADER_MIDDLEWARES = {
 # Define used proxies
 ROTATING_PROXY_LIST = [
   '189.51.153.195:57898', '45.162.37.79:8080',   '179.108.187.9:8080',
-  '177.23.104.38:61536',  '187.32.123.177:3128', '45.71.80.34:37122',
+  '177.23.104.38:61536',  '187.32.123.177:3128',
+  '45.71.80.34:37122',    '187.111.160.8:42579',
   '45.162.37.79:8080',    '186.250.55.233:50741','179.108.187.9:8080',
   '187.32.123.177:3128',  '187.32.123.177:3128', '177.72.92.24:23500'
 ]
@@ -104,7 +105,7 @@ ITEM_PIPELINES = {
 }
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
